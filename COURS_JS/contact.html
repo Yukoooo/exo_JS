@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Formulaire de contact</title>
+</head>
+
+<body>
+    <h1>Vos coordonées :</h1>
+    <p style="color: red">* Ces zones sont obligatoires pour envoyer le formulaire</p>
+    <form action="#" method="POST" onsubmit="traitementFormulaire(event)">
+        <label for="societe">Société :</label>
+        <input type="text" id="societe" name="societe" required>
+        <br><br>
+
+        <label for="personne">Personne à contacter :</label>
+        <input type="text" id="personne" name="personne" required>
+        <br><br>
+
+        <label for="adresseEntreprise">Adresse de l'entreprise :</label>
+        <textarea id="adresseEntreprise" name="adresseEntreprise"></textarea>
+        <br><br>
+
+        <label for="codepostal">Code postal :</label>
+        <input type="text" id="codepostal" name="codepostal" pattern="[0-9]{5}" required>
+        <br><br>
+
+        <label for="ville">Ville :</label>
+        <input type="text" id="ville" name="ville" required>
+        <br><br>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="telephone">Téléphone</label>
+        <input type="telephone" id="telephone" name="telehpone" pattern="[0-9]{10}">
+        <br><br>
+
+        <label for="environnement">Environnement technique :</label>
+        <select id="environnement" name="environnement" required>
+            <option value="" disabled selected>Choisissez</option>
+            <option value="Access">Access</option>
+            <option value="Java">Java</option>
+            <option value="Delphi">Delphi</option>
+            <option value="Windev">Windev</option>
+            <option value="Visual Basic">Visual Basic</option>
+            <option value="Power Builder">Power Builder</option>
+            <option value="Internet">Internet</option>
+            <option value="Intranet">Intranet</option>
+            <option value="Windows NT">Windows NT</option>
+            <option value="Unix">Unix</option>
+            <option value="SQL Server">SQL Server</option>
+            <option value="Oracle">Oracle</option>
+            <option value="Autres">Autres</option>
+        </select>
+        <br><br>
+
+        <label for="Details">Veuillez décrire votre problème</label>
+        <textarea id="details" name="details"></textarea>
+        <br><br>
+
+        <input type="submit" value="Envoyer">
+        <button type="reset">Effacer</button>
+    </form>
+
+    <script>
+        function traitementFormulaire(event) {
+            event.preventDefault();
+
+            var societe = document.getElementById("societe").value;
+            var personne = document.getElementById("personne").value;
+            var adresseEntreprise = document.getElementById("adresseEntreprise").value;
+            var codePostal = document.getElementById("codepostal").value;
+            var ville = document.getElementById("ville").value;
+            var email = document.getElementById("email").value;
+            var telephone = document.getElementById("telephone").value;
+            var environnement = document.getElementById("environnement").value;
+            var details = document.getElementById("details").value;
+            console.log("Société :", societe);
+            console.log("Personne à contacter :", personne);
+            console.log("Adresse de l'entreprise :", adresseEntreprise);
+            console.log("Code postal :", codePostal);
+            console.log("Ville :", ville);
+            console.log("Email :", email);
+            console.log("Téléphone :", telephone);
+            console.log("Environnement technique :", environnement);
+            console.log("Détails :", details);
+
+
+            document.getElementById("societe").value = "";
+            document.getElementById("personne").value = "";
+            document.getElementById("adresseEntreprise").value = "";
+            document.getElementById("codepostal").value = "";
+            document.getElementById("ville").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("telephone").value = "";
+            document.getElementById("environnement").value = "";
+            document.getElementById("details").value = "";
+        }
+    </script>
+</body>
+
+</html>

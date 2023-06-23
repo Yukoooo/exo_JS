@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nombre magique</title>
+  </head>
+  <body>
+    <div id="label1">Veuillez saisir votre essai de nombre</div>
+    <input id="textBox1" value="" onkeydown="verif(event);">
+    <input type="button" id="button1" value="Verifier" onclick="verif();"> 
+
+    <script>
+      var nombreMagique = Math.floor(Math.random() * 100) + 1;
+      var essaisRestants = 8;
+
+      function verif(event) {
+        if (event && event.key !== "Enter") {
+          return;
+        }
+
+        var proposition = parseInt(document.getElementById("textBox1").value);
+        var label = document.getElementById("label1");
+
+        if (isNaN(proposition)) {
+          label.innerHTML = "Veuillez entrer un nombre valide.";
+          return;
+        }
+
+        essaisRestants--;
+
+        if (proposition === nombreMagique) {
+          label.innerHTML = "Bravo ! Vous avez trouvé le nombre magique.";
+        } else if (proposition < nombreMagique) {
+          label.innerHTML = "Trop petit. Essais restants : " + essaisRestants;
+        } else {
+          label.innerHTML = "Trop grand. Essais restants : " + essaisRestants;
+        }
+
+        if (essaisRestants === 0) {
+          document.getElementById("textBox1").disabled = true;
+          document.getElementById("button1").disabled = true;
+          label.innerHTML += " Le nombre magique était : " + nombreMagique;
+        }
+
+        document.getElementById("textBox1").value = "";
+      }
+    </script>
+
+  </body>
+</html>

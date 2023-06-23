@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercice 1 JS 08</title>
+</head>
+<body>
+
+
+  <input type="text" id="prenom">
+  <button onclick="Prenom()">Ajouter</button>
+
+  <script>
+    function Prenom() {
+      var prenom = document.getElementById("prenom").value;
+
+      if (prenom != "") {
+        prenoms.push(prenom);
+      }
+
+      document.getElementById("prenom").value = "";
+
+      if (prenom == "") {
+        console.log("Nombre de prénoms : " + prenoms.length);
+        console.log("Prénoms saisis : " + prenoms.join(", "));
+      }
+    }
+
+    var prenoms = [];
+  </script>
+</body>
+</html>
